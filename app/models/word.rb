@@ -5,4 +5,12 @@ class Word < ApplicationRecord
     Word.where(created_at: Time.zone.now.all_day)
   end
 
+  def pronucation_link
+    ''
+  end
+
+  def sample_sentence
+    ''
+  end
+
 end
