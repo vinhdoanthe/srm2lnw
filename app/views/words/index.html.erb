@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Words</h1>
+
+<%= link_to "New word", new_word_path, :class => "btn btn-primary" %>
+
+<div id="words">
+  <% @words.each do |word| %>
+    <%= render partial: "word_list_item", locals: {word: word} %>
+    <p>
+      <%= link_to "Show this word", word %>
+    </p>
+  <% end %>
+</div>
+
