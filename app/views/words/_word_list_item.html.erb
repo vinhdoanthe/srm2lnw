@@ -1,14 +1,14 @@
-<div id="<%= dom_id word %>" class="row">
+<div id="<%= dom_id word %>" class="row border border-1 rounded m-2">
 
   <div class="col-2">
-    <%= word.word %>
+      <%= link_to word.word, word %>
   </div>
 
   <div class="col-2">
     <%= word.pronunciation %>
   </div>
 
-  <div class="col-6">
+  <div class="col-4">
     <%= word.meaning %>
   </div>
 
@@ -16,4 +16,9 @@
     <%= word.level_of_difficult %>
   </div>
 
+  <div class="col-2">
+    <%= link_to 'Pronunce' %>
+     |
+    <%= link_to 'Example with chatGPT' %>
+  </div>
 </div>
