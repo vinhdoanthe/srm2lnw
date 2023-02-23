@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_22_014556) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_181758) do
+  create_table "learning_attempts", force: :cascade do |t|
+    t.integer "word_id", null: false
+    t.integer "user_id", null: false
+    t.boolean "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_learning_attempts_on_user_id"
+    t.index ["word_id"], name: "index_learning_attempts_on_word_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   create_table "words", force: :cascade do |t|
     t.string "word"
     t.text "meaning"
@@ -18,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_014556) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "pronunciation"
+    t.integer "user_id"
+    t.datetime "upcomming_learn_at", precision: nil
+    t.integer "count_learn_success"
+    t.integer "count_learn_fail"
+    t.string "level_of_mastering"
+    t.index ["user_id"], name: "index_words_on_user_id"
   end
 
+  add_foreign_key "learning_attempts", "users"
+  add_foreign_key "learning_attempts", "words"
+  add_foreign_key "words", "users"
 end

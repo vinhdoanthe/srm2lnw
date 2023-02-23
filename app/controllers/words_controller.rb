@@ -1,9 +1,19 @@
 class WordsController < ApplicationController
+
+  # Include Pagy for pagination
+  include Pagy::Backend
+
   before_action :set_word, only: %i[ show edit update destroy ]
+
+  # Get /today or /today.json
+  # Get today's words to learn
+  def today_words
+    @words = Word.today_words
+  end
 
   # GET /words or /words.json
   def index
-    @words = Word.all
+    @pagy, @words = pagy(Word.where(:user => current_user).order(:created_at => :desc))
   end
 
   # GET /words/1 or /words/1.json
@@ -22,6 +32,7 @@ class WordsController < ApplicationController
   # POST /words or /words.json
   def create
     @word = Word.new(word_params)
+    @word.user = current_user
 
     respond_to do |format|
       if @word.save
@@ -36,6 +47,7 @@ class WordsController < ApplicationController
 
   # PATCH/PUT /words/1 or /words/1.json
   def update
+    @word.user = current_user
     respond_to do |format|
       if @word.update(word_params)
         format.html { redirect_to word_url(@word), notice: "Word was successfully updated." }
