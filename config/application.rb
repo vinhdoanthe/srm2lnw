@@ -12,7 +12,7 @@ module Srm2lnw
     config.load_defaults 7.0
 
     # Add allowed hosts
-    config.hosts << "srm2lnw.local"
+    config.hosts = config.hosts + ENV["ALLOWED_HOSTS"].split(",") if ENV["ALLOWED_HOSTS"].present?
 
     # Configuration for the application, engines, and railties goes here.
     #
