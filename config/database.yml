@@ -23,10 +23,5 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: <%= ENV.fetch("DATABASE_NAME") {""} %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch("DATABASE_USERNAME") {""} %>
-  password: <%= ENV.fetch("DATABASE_PASSWORD") {""} %>
-  host: <%= ENV.fetch("DATABASE_HOST") {""} %>
-  port: <%= ENV.fetch("DATABASE_PORT") {5432} %>
+  url: <%= ENV["DATABASE_URL"] %>
   timeout: 5000
