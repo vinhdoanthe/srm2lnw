@@ -1,7 +1,11 @@
-<div id="<%= dom_id word %>" class="row border border-1 rounded m-2">
+<% content_for :custom_stylesheet do %>
+  <%= stylesheet_link_tag 'words' %>
+<% end %>
+
+<div id="<%= dom_id word %>" class="row rounded mt-2 word-list-item">
 
   <div class="col-2">
-      <%= link_to word.word, word %>
+    <%= link_to word.word, word %>
   </div>
 
   <div class="col-2">
@@ -18,7 +22,9 @@
 
   <div class="col-2">
     <%= link_to 'Pronunce' %>
-     |
+    |
     <%= link_to 'Example with chatGPT' %>
+    |
+    <%= link_to 'Flashcard', flash_card_path(word) %>
   </div>
 </div>

@@ -3,12 +3,19 @@ class WordsController < ApplicationController
   # Include Pagy for pagination
   include Pagy::Backend
 
-  before_action :set_word, only: %i[ show edit update destroy ]
+  # Include FlashCardBuilder
+  # include Builders::FlashCardBuilder
+
+  before_action :set_word, only: %i[ show edit update destroy flash_card ]
 
   # Get /today or /today.json
   # Get today's words to learn
   def today_words
     @words = Word.today_words
+  end
+
+  def flash_card
+    @word, @random_words = FlashCardBuilder.build(@word)
   end
 
   # GET /words or /words.json

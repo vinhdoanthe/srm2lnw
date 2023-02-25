@@ -1,0 +1,31 @@
+
+
+<% content_for :navbar do %>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="<%= root_path %>"><%= t :applicattion_short_name %></a>
+    </div>
+  </nav>
+<% end %>
+
+
+<%= link_to t(:back), root_path %>
+
+<div>
+  <div class="row">
+    <h1> Which word is this? </h1>
+    <p>
+    <%= @word.meaning %>
+    </p>
+  </div>
+
+  <div class="row">
+    <% @random_words.each do |word| %>
+      <div class="card text-bg-light ms-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <h3 class="card-title"><%= word.word %></h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module LearningAttemptHelper
+end

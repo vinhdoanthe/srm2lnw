@@ -4,6 +4,10 @@ class Word < ApplicationRecord
 
   has_many :learning_attempts
 
+
+  validates :word, presence: true
+  validates :meaning, presence: true
+
   # Other filters (to be defined in the future)
   # has_many :learning_attemps_true, -> { where(learning_attempts: {proficient: true}) }, through: :learning_attempts, source: :word
   # ...
@@ -19,6 +23,13 @@ class Word < ApplicationRecord
 
   def sample_sentence
     ''
+  end
+
+  def self.random_words(word)
+    # Get 3 random words
+    random_words = self.where.not(id: word.id).sample(3)
+    random_words << word
+    random_words.shuffle
   end
 
 end

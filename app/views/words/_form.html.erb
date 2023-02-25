@@ -10,28 +10,35 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :word, style: "display: block" %>
-    <%= form.text_field :word %>
+  <div class="row">
+    <div class="col-6">
+      <div class="mb-3">
+        <%= form.label :word, style: "display: block" %>
+        <%= form.text_field :word, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="mb-3">
+        <%= form.label :pronunciation, style: "display: block" %>
+        <%= form.text_field :pronunciation, :class => "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mb-3">
+      <%= form.label :meaning, style: "display: block" %>
+      <%= form.text_area :meaning, :class => "form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :pronunciation, style: "display: block" %>
-    <%= form.text_area :pronunciation %>
+  <div class="row">
+    <div class="mb-3">
+      <%= form.label :level_of_difficult, style: "display: block" %>
+      <%= form.number_field :level_of_difficult, :class => "form-group" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :meaning, style: "display: block" %>
-    <%= form.text_area :meaning %>
-  </div>
-
-  <div>
-    <%= form.label :level_of_difficult, style: "display: block" %>
-    <%= form.number_field :level_of_difficult %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="d-grid">
+    <%= form.submit "Add", :class => "btn btn-primary" %>
   </div>
 <% end %>
