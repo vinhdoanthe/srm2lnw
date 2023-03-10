@@ -1,0 +1,6 @@
+vi:
+  word:
+    level_of_difficulties:
+      easy: "Easy"
+      medium: "Medium"
+      hard: "Hard"

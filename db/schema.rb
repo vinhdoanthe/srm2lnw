@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_23_181758) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_10_082414) do
   create_table "learning_attempts", force: :cascade do |t|
     t.integer "word_id", null: false
     t.integer "user_id", null: false
@@ -19,6 +19,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_181758) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_learning_attempts_on_user_id"
     t.index ["word_id"], name: "index_learning_attempts_on_word_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_181758) do
     t.datetime "updated_at", null: false
     t.text "pronunciation"
     t.integer "user_id"
-    t.datetime "upcomming_learn_at", precision: nil
+    t.datetime "upcoming_learn_at", precision: nil
     t.integer "count_learn_success"
     t.integer "count_learn_fail"
     t.string "level_of_mastering"

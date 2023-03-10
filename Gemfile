@@ -27,6 +27,9 @@ gem "jsbundling-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
+# Use importmap-rails to manage JavaScript dependencies
+gem "importmap-rails"
+
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
@@ -76,6 +79,11 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  # Use listen to detect file changes
+  gem "listen", "~> 3.5"
+
+  # Use livereload to reload browser on file changes
+  gem 'rails_live_reload'
 end
 
 group :test do
@@ -89,3 +97,5 @@ group :production do
   # Use PostgreSQL as the database for Active Record in production
   gem 'pg', '~> 1.4', '>= 1.4.5'
 end
+
+gem "sidekiq", "~> 7.0"

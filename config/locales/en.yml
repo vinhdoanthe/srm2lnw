@@ -33,3 +33,9 @@ en:
   hello: "Hello world"
   application_name: "Spaced Repetition Method to Learning New Words"
   applicattion_short_name: "SRL2LNW"
+
+  word:
+    level_of_difficulties:
+      easy: "Easy"
+      medium: "Medium"
+      hard: "Hard"

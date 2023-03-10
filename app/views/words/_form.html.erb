@@ -34,7 +34,7 @@
   <div class="row">
     <div class="mb-3">
       <%= form.label :level_of_difficult, style: "display: block" %>
-      <%= form.number_field :level_of_difficult, :class => "form-group" %>
+      <%= form.select(:level_of_difficult, Word.list_level_of_difficulties, { :class => "form-group" }) %>
     </div>
   </div>
 
