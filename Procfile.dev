@@ -1,3 +1,5 @@
+docker: docker-compose -f docker-compose-db.yml down && docker-compose -f docker-compose-db.yml up
 web: unset PORT && bin/rails server
-js: yarn build --watch
-css: yarn build:css --watch
+sidekiq: bundle exec sidekiq
+/* js: yarn build --watch */
+/* css: yarn build:css --watch */

@@ -2,7 +2,7 @@ class Word < ApplicationRecord
 
   include WordConcern::Constants
 
-  after_save :set_upcoming_learn_at
+  after_create :set_upcoming_learn_at
 
   belongs_to :user
 
@@ -47,7 +47,6 @@ class Word < ApplicationRecord
   def set_upcoming_learn_at
     # Set upcoming_learn_at based on the last learning attempt
     # TODO
-    self.upcoming_learn_at = Time.zone.now + 3.day
     CalculateNextTimeToLearnTheWordJob.perform_later(self)
   end
 
