@@ -6,6 +6,11 @@ ruby "3.0.4"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
+# Use Sentry to catch errors
+gem 'sentry-ruby'
+gem 'sentry-rails'
+gem 'sentry-sidekiq'
+
 # Use pagy for pagination
 gem 'pagy', '~> 6.0'
 
