@@ -1,3 +1,5 @@
+require 'sentry-ruby'
+
 Sentry.init do |config|
   config.dsn = ENV.fetch('SENTRY_DSN', '')
   config.breadcrumbs_logger = [:active_support_logger]
