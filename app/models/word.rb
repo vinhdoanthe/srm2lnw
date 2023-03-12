@@ -47,7 +47,7 @@ class Word < ApplicationRecord
   def set_upcoming_learn_at
     # Set upcoming_learn_at based on the last learning attempt
     # TODO
-    CalculateNextTimeToLearnTheWordJob.perform_later(self)
+    CalculateNextTimeToLearnTheWordJob.set(wait: 1.minute).perform_later(self)
   end
 
 end
