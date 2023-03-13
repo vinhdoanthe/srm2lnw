@@ -6,6 +6,8 @@ class Word < ApplicationRecord
 
   belongs_to :user
 
+  has_rich_text :meaning
+
   has_many :learning_attempts
 
 
